@@ -182,7 +182,7 @@ public final class ElEscapeDetector {
      * @return - ASTExpression list containing all arguments that are vulnerable to XSS.
      */
     private static List<ASTExpression> getXssableArguments(String functionName, ASTArguments arguments) {
-        List<ASTExpression> exprs = new ArrayList<>();
+        List<ASTExpression> xssableArguments = new ArrayList<>();
         int argCount = arguments.getNumChildren();
         if (argCount != 0) {
             String lowerCaseName = functionName.toLowerCase(Locale.ROOT);
@@ -225,11 +225,11 @@ public final class ElEscapeDetector {
             for (int i : indicesToCheck) {
                 VfNode ithArg = arguments.getChild(i);
                 if (ithArg instanceof ASTExpression) {
-                    exprs.add((ASTExpression) ithArg);
+                    xssableArguments.add((ASTExpression) ithArg);
                 }
             }
         }
-        return exprs;
+        return xssableArguments;
     }
 
     /**
