@@ -124,7 +124,7 @@ public final class ElEscapeDetector {
                 ASTIdentifier propId = child.firstChild(ASTIdentifier.class);
                 // If there's an identifier for a field/property, we need to check whether that property is inherently safe,
                 // either because it corresponds to a safe field or because its data type is known to be safe.
-                if (propId != null && !isSafeProperty(propId.getImage()) && !typedNodeIsSafe(propId)) {
+                if (isUnsafeProperty(propId)) {
                     // If the node isn't definitely safe, it ought to be escaped. Return false.
                     return false;
                 }
@@ -252,7 +252,11 @@ public final class ElEscapeDetector {
         String lowerCaseName = propertyName.toLowerCase(Locale.ROOT);
         return SAFE_PROPERTIES.contains(lowerCaseName);
     }
-
+    
+    private static boolean isUnsafeProperty(ASTIdentifier propId) {
+        return propId != null && !isSafeProperty(propId.getImage()) && !typedNodeIsSafe(propId);
+    }
+    
     private static boolean innerContainsSafeFields(final VfNode expression) {
         for (VfNode child : expression.children()) {
 
