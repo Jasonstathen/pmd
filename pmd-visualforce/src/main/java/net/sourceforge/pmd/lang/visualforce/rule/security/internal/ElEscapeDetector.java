@@ -252,11 +252,11 @@ public final class ElEscapeDetector {
         String lowerCaseName = propertyName.toLowerCase(Locale.ROOT);
         return SAFE_PROPERTIES.contains(lowerCaseName);
     }
-    
+
     private static boolean isUnsafeProperty(ASTIdentifier propId) {
         return propId != null && !isSafeProperty(propId.getImage()) && !typedNodeIsSafe(propId);
     }
-    
+
     private static boolean innerContainsSafeFields(final VfNode expression) {
         for (VfNode child : expression.children()) {
 
