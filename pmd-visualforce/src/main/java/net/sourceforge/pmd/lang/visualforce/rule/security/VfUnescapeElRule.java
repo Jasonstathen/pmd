@@ -193,9 +193,9 @@ public class VfUnescapeElRule extends AbstractVfRule {
             final ASTLiteral literal = expression.firstChild(ASTLiteral.class);
             if (literal != null && literal.getIndexInParent() == 0) {
                 String lowerCaseLiteral = literal.getImage().toLowerCase(Locale.ROOT);
-                if (lowerCaseLiteral.startsWith("'/") || lowerCaseLiteral.startsWith("\"/")
-                        || lowerCaseLiteral.startsWith("'http")
-                        || lowerCaseLiteral.startsWith("\"http")) {
+                boolean startsWithSlash = lowerCaseLiteral.startsWith("'/") || lowerCaseLiteral.startsWith("\"/");
+                boolean startsWithHttp = lowerCaseLiteral.startsWith("'http") || lowerCaseLiteral.startsWith("\"http");
+                if (startsWithSlash || startsWithHttp) {
                     return true;
                 }
             }
