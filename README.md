@@ -46,6 +46,19 @@ This shows how PMD analyses [openjdk](https://github.com/openjdk/jdk):
 There are plugins for Maven and Gradle as well as for various IDEs.
 See [Tools / Integrations](https://docs.pmd-code.org/latest/pmd_userdocs_tools.html)
 
+## How to build
+
+### Prerequisites
+1. Java 21 or higher 
+2. Git
+
+### Build
+1. clone the repository: `git clone https://github.com/Jasonstathen/pmd.git`
+2. enter the folder: `cd pmd`
+3. run all tests by: `./mvnw clean verify`
+4. run all tests (windows) by: `mvnw.cmd clean verify`
+5. run visualforce only by: `./mvnw -pl pmd-visualforce test`
+
 ## ℹ️ How to get support?
 
 *   How do I? -- Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/pmd)
