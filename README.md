@@ -55,9 +55,10 @@ See [Tools / Integrations](https://docs.pmd-code.org/latest/pmd_userdocs_tools.h
 ### Build
 1. clone the repository: `git clone https://github.com/Jasonstathen/pmd.git`
 2. enter the folder: `cd pmd`
-3. run all tests by: `./mvnw clean verify`
-4. run all tests (windows) by: `mvnw.cmd clean verify`
-5. run visualforce only by: `./mvnw -pl pmd-visualforce test`
+3. check if you are in the a2-refactoring branch : `git checkout a2-refactoring`
+4. run all tests by: `./mvnw clean verify`
+5. run all tests (windows) by: `mvnw.cmd clean verify`
+6. run visualforce only by: `./mvnw -pl pmd-visualforce test`
 
 ## ℹ️ How to get support?
 
